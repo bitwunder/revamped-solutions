@@ -83,22 +83,40 @@ Additional:
   <summary><h3>1. Multithreading & Memory model</h3></summary>
 
 #### 1. What memory model [Rust] has?
-> ?
+> According to The Rust Reference - Rust has no intelligible Memory Model built around it.
+>
+> Though with a respect to The Rustonomicon chapter about Atomics, it would be pretty much close to the truth to say that the Rust just inherits the Memory Model from `C++11` with more or less a few changes.
 
 #### 1.1. Is it single-threaded or multiple-threaded?
-> ?
+> It's multithreaded. We can use threads, we can as well go single-thread, but the Rust's memory model itself allows us to use multithreading.
 
 #### 1.2. Is it synchronous or asynchronous?
-> ?
+> 
 
 #### 1.3. What is the memory layout of the box and vector?  
-> ?
+> `Box` is just a `thin` stack pointer to some data located on the heap. stack: |`ptr` (usize) -> heap|, heap: |`data`, i.e. `Vec<T>`|.
+> Everything created within the Box smart pointer is being moved/allocated on the heap and the Box itself stores the pointer to that memory.
+>
+> `Vector` is a bit more complicated and in this sense could be called `fat` pointer, because it has additional metadata besides the pointer itself:
+> - |`ptr` (usize) -> heap | `size` (usize) | `capacity` (usize) |
 
 #### 1.4. What are heap and stack?
-> ?
+> These are basically two separate virtual memory regions.
+> `Stack` - is where simple data (such as literals, primitive data types, function callstacks and arguments) is stored.
+> Stack is contiguous (virtually) memory region that is pretty fast to write and to read to/from.
+> It's used for storing data such as variables declared within the and arguments for the currently executed function (which is to be said: has it's own stack).
+>
+> `Heap` on the other side is a messy place where the data is put, as the name itself suggests, on the heap, where there is no particular order.
+> Data is stored chaotically on the heap, and that is pretty much the reason why it's slow and expensive to use.
+> Nevertheless there is only one way to store large amount of data - Heap. Because a stack is pretty much limited in size.
 
 #### 1.5. Where, but on heap and stack data could live in RAM?
-> ?
+> There's also some other regions of memory like the `.text`, and `.data`.
+> `.text` is the region where the executable (or binary) of the program itself is stored.
+> `.data`:
+> - initialized sector: here, all the initialized data is stored
+> - uninitialized (.bss): global and static variables are stored here
+
 
 ---
 </details>
