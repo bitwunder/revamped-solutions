@@ -43,10 +43,10 @@ After completing these steps, including [this theory][nav-2], you should be able
 ## 2. Theory Section
 
 _Additional_ articles, which may help to understand the above topic better:
-- [ ] [Chris Morgan: Rust ownership, the hard way][1]
-- [ ] [Adolfo Ochagavía: You are holding it wrong][23]
-- [ ] [Vikram Fugro: Beyond Pointers: How Rust outshines C++ with its Borrow Checker][30]
-- [ ] [HashRust: A guide to closures in Rust][24]
+- [x] [Chris Morgan: Rust ownership, the hard way][1]
+- [x] [Adolfo Ochagavía: You are holding it wrong][23]
+- [x] [Vikram Fugro: Beyond Pointers: How Rust outshines C++ with its Borrow Checker][30]
+- [x] [HashRust: A guide to closures in Rust][24]
 - [ ] [Ludwig Stecher: Rusts Module System Explained][2]
 - [ ] [Tristan Hume: Models of Generics and Metaprogramming: Go, Rust, Swift, D and More][3]
 - [ ] [Jeff Anderson: Generics Demystified Part 1][4]
